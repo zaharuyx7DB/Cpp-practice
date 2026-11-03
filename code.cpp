@@ -48,8 +48,18 @@ bool check_password(string password)
     return false;
 }
 
+int check_balance(int &main_balance, int &saving_balance)
+{
+
+    cout << "Основной счет:\t" << main_balance << endl;
+    cout << "Сберегательный:\t" << saving_balance << endl;
+    return 0;
+}
+
 int main()
 {
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
 
     cout << "Enter your password:" << endl;
     bool is_ok = false;
@@ -68,6 +78,66 @@ int main()
             cin >> password;
             is_ok = check_password(password);
         }
+    }
+
+    // password
+
+    // main menu
+
+    if (check_password(password) == true)
+    {
+        cout << "===== SMART BANK =====" << endl;
+        cout << "1. Проверить баланс" << endl;
+        cout << "2. Пополнить счёт" << endl;
+        cout << "3. Снять деньги" << endl;
+        cout << "4. Перевести деньги" << endl;
+        cout << "5. Статистика операций" << endl;
+        cout << "6. Изменить PIN" << endl;
+        cout << "7. Выйти из аккаунта" << endl;
+        cout << "0. Завершить программу" << endl;
+        cout << "======================" << endl;
+        cout << "Выберите действие:" << endl;
+    }
+
+    int user_input;
+    cin >> user_input;
+
+    int m, s;
+    m = 3000;
+    s = 1000;
+
+    switch (user_input)
+    {
+    case 0:
+        cout << "Благодарим за вам выбор!";
+        return 0;
+
+    case 1:
+        check_balance(m, s);
+
+        break;
+    case 2:
+
+        break;
+    case 3:
+
+        break;
+    case 4:
+
+        break;
+    case 5:
+
+        break;
+    case 6:
+
+        break;
+    case 7:
+
+        break;
+
+    default:
+        cout << "No options found";
+        break;
     }
 
     return 0;
