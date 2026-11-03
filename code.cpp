@@ -56,7 +56,9 @@ int check_balance(int &main_balance, int &saving_balance)
     return 0;
 }
 
-int main()
+int add_money()
+
+       int main()
 {
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
@@ -109,12 +111,11 @@ int main()
     switch (user_input)
     {
     case 0:
-        cout << "Благодарим за вам выбор!";
+        cout << "Благодарим за ваш выбор!";
         return 0;
 
     case 1:
         check_balance(m, s);
-
         break;
     case 2:
 
