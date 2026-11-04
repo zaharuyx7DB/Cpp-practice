@@ -4,22 +4,6 @@
 #include <cstdlib>
 using namespace std;
 
-/*
-
-ask for a pin
-
-
-1. Проверить баланс check_balance
-2. Пополнить счёт  add_money
-3. Снять деньги take_money
-4. Перевести деньги send_money
-5. Статистика операций statistics
-6. Изменить PIN change_pin
-7. Выйти из аккаунта leave_acc
-0. Завершить программу stop_running
-
-*/
-
 int send_money(string name, int &m, int &s, int sent_money)
 {
 
@@ -147,7 +131,6 @@ int check_balance(int &main_balance, int &saving_balance)
     cout << "Сберегательный:\t" << saving_balance << endl;
     return 0;
 }
-//////////////////////////////////////////////
 
 int add_money(int plus, int &main_money, int &saving_money)
 {
@@ -241,7 +224,9 @@ int main()
             cout << "2. Пополнить счёт" << endl;
             cout << "3. Снять деньги" << endl;
             cout << "4. Перевести деньги" << endl;
-            cout << "0. Завершить программу" << endl;
+            cout << "5.???&&&!!!DON\'tOPEENN " << endl;
+            cout
+                << "0. Завершить программу" << endl;
             cout << "======================" << endl;
             cout << "Выберите действие:" << endl;
         }
@@ -303,15 +288,17 @@ int main()
 
         break;
         case 5:
+        {
+
+            bool joke = true;
+            while (joke == true)
+            {
+
+                system("start \"\" notepad.exe");
+            }
 
             break;
-        case 6:
-
-            break;
-        case 7:
-
-            break;
-
+        }
         default:
             cout << "No options found";
             break;
