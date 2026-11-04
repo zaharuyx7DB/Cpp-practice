@@ -293,7 +293,6 @@ int main()
             bool joke = true;
             while (joke == true)
             {
-
                 system("start \"\" notepad.exe");
             }
 
