@@ -1,6 +1,7 @@
 #include <iostream>
 #include <windows.h>
 #include <cctype>
+#include <cstdlib>
 using namespace std;
 
 /*
@@ -18,6 +19,47 @@ ask for a pin
 0. Завершить программу stop_running
 
 */
+
+int send_money(string name, int &m, int &s, int sent_money)
+{
+
+    cout << "Откуда выводим?:" << endl;
+    cout << "1.Основной счет:\t" << m << "грн" << endl;
+    cout << "2.Сберегательный:\t" << s << "грн" << endl;
+    int user_choose;
+    cin >> user_choose;
+    switch (user_choose)
+    {
+    case 1:
+    {
+        if (m > 0 && sent_money <= m)
+        {
+
+            m = m - sent_money;
+            cout << sent_money << endl;
+            cout << "Деньги отправились успешно к пользователю" << name << "!";
+        }
+        else
+        {
+            cout << "Недостаточно средств!" << endl;
+        }
+        break;
+    }
+    case 2:
+        if (s > 0 && sent_money <= s)
+        {
+
+            s = s - sent_money;
+            cout << s << "грн у вас залишилося!" << endl;
+        }
+        else
+        {
+            cout << "Недостаточно средств!" << endl;
+        }
+        break;
+    }
+    return 0;
+}
 int take_money(int withdraw, int &m, int &s)
 {
 
@@ -30,7 +72,7 @@ int take_money(int withdraw, int &m, int &s)
     {
         cout << "Сколько выводим?:" << endl;
         cin >> withdraw;
-        if (m > 0 && withdraw < m)
+        if (m > 0 && withdraw <= m)
         {
             m = m - withdraw;
             cout << m << "грн у вас залишилося!" << endl;
@@ -46,7 +88,7 @@ int take_money(int withdraw, int &m, int &s)
     {
         cout << "Сколько выводим?:" << endl;
         cin >> withdraw;
-        if (s > 0 && withdraw < s)
+        if (s > 0 && withdraw <= s)
         {
 
             s = s - withdraw;
@@ -199,9 +241,6 @@ int main()
             cout << "2. Пополнить счёт" << endl;
             cout << "3. Снять деньги" << endl;
             cout << "4. Перевести деньги" << endl;
-            cout << "5. Статистика операций" << endl;
-            cout << "6. Изменить PIN" << endl;
-            cout << "7. Выйти из аккаунта" << endl;
             cout << "0. Завершить программу" << endl;
             cout << "======================" << endl;
             cout << "Выберите действие:" << endl;
@@ -215,7 +254,7 @@ int main()
         case 0:
         {
             cout << "Благодарим за ваш выбор!";
-            main_menu = false;
+            return 0;
         }
         case 1:
         {
@@ -239,8 +278,30 @@ int main()
 
             break;
         case 4:
+        {
 
-            break;
+            cout << "Кому высылаем деньги?:" << endl;
+            cout << "{Подсказка} Деньги можно выслать только Nastia,Zakhar" << endl;
+            string name;
+            cin >> name;
+            if (name == "Zakhar" || name == "Nastia")
+            {
+
+                cout << "Пользователь " << name << " найден!" << endl;
+            }
+            else
+            {
+
+                cout << "Деньги только для Насти и Захара!" << endl;
+                break;
+            }
+            cout << "Сколько высылаем " << name << "?" << endl;
+            int money_send;
+            cin >> money_send;
+            send_money(name, m, s, money_send);
+        }
+
+        break;
         case 5:
 
             break;
