@@ -18,6 +18,56 @@ ask for a pin
 0. Завершить программу stop_running
 
 */
+int take_money(int withdraw, int &m, int &s)
+{
+
+    int user_input;
+    cin >> user_input;
+
+    switch (user_input)
+    {
+    case 1:
+    {
+        cout << "Сколько выводим?:" << endl;
+        cin >> withdraw;
+        if (m > 0 && withdraw < m)
+        {
+            m = m - withdraw;
+            cout << m << "грн у вас залишилося!" << endl;
+        }
+        else
+        {
+
+            cout << "Недостаточно средств!" << endl;
+        }
+        break;
+    }
+    case 2:
+    {
+        cout << "Сколько выводим?:" << endl;
+        cin >> withdraw;
+        if (s > 0 && withdraw < s)
+        {
+
+            s = s - withdraw;
+            cout << s << "грн у вас залишилося!" << endl;
+        }
+        else
+        {
+            cout << "Недостаточно средств!" << endl;
+        }
+        break;
+    }
+    default:
+    {
+
+        cout << "No option found!" << endl;
+        cout << "Try again" << endl;
+        break;
+    }
+    }
+    return 0;
+}
 
 bool check_password(string password)
 {
@@ -160,7 +210,7 @@ int main()
         int user_input;
         cin >> user_input;
 
-               switch (user_input)
+        switch (user_input)
         {
         case 0:
         {
@@ -174,11 +224,18 @@ int main()
             break;
         }
         case 2:
+        {
             cout << "Введите сумму:" << endl;
             cin >> amount;
             add_money(amount, m, s);
             break;
+        }
         case 3:
+            int withdraw;
+            cout << "Де выводим?:" << endl;
+            cout << "1.Основной счет:\t" << m << "грн" << endl;
+            cout << "2.Сберегательный:\t" << s << "грн" << endl;
+            take_money(withdraw, m, s);
 
             break;
         case 4:
